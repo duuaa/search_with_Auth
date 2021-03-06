@@ -18,6 +18,7 @@ import { SearchArtistsPipe } from './custom-pipes/search-artists.pipe';
 import { ResultsItemsComponent } from './results-items/results-items.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -31,8 +32,8 @@ import { LoginComponent } from './login/login.component';
     ArtistItemsComponent,
     SearchArtistsPipe,
     ResultsItemsComponent,
-    HomeComponent,
-    LoginComponent
+    RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
