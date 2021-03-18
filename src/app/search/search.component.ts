@@ -1,6 +1,6 @@
 import { AuthService } from '../shared/services/Auth.service';
 import { Post } from './../store/reducers/posts.reducer';
-import { Component, HostListener, OnInit, Query } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { StoreInterface } from '../store/store';
@@ -11,8 +11,6 @@ import { LoadPostsAction } from '../store/actions/post.action';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-
-
 export class SearchComponent implements OnInit {
   query: string;
   artists: StoreInterface;
@@ -22,6 +20,7 @@ export class SearchComponent implements OnInit {
 
   results: string;
   pagecond: boolean;
+  
   pagelistcond: boolean;
 
   user = {
@@ -41,11 +40,8 @@ export class SearchComponent implements OnInit {
     }
 
 
-
-  }
-  constructor(private store: Store<StoreInterface>, private authservice: AuthService) {
-
-  }
+}
+  constructor(private store: Store<StoreInterface>, private authservice: AuthService) { }
 
   showArtist(item) {
     this.query = item.title;
@@ -53,9 +49,10 @@ export class SearchComponent implements OnInit {
     this.results = "";
     this.entercond = false;
     this.pagecond = true;
-    this.pagelistcond = false;
+    this.pagelistcond = false;}
 
-  }
+dologout(){
+  this.authservice.logout();}
 
   ngOnInit(): void {
     this.authservice.userInfo.subscribe(value => {
@@ -63,16 +60,10 @@ export class SearchComponent implements OnInit {
         this.user.username=value.username;
         this.user.id=value.userid;
       }
-    })
-   
+    });
     this.query = '';
     this.store.dispatch(new LoadPostsAction());
     this.store.subscribe(data => this.artists = data);
-    
-
   }
-
-
-
 }
 

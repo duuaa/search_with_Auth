@@ -1,5 +1,3 @@
-
-
 <div class="position-relative container">
   <div class="row justify-content-center">
     <div>
@@ -9,6 +7,8 @@
         <li>userId- {{user.id}}</li>
       </ul>
     </div>
+    
+    <button type="submit" (click)=" dologout()" class="btn btn-danger">Logout</button>
     <div class="card mt-sm-3 col-md-8">
       
       <div class="card-body">
@@ -27,7 +27,7 @@
     <div class="row justify-content-center">
       <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
         <div class="list-group" *ngIf="query && artists.posts ">
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"
+          <a class="list-group-item list-group-item-action flex-column align-items-start"
             *ngFor="let artist of (artists.posts | searchArtists: query)" (click)="showArtist(artist);query=''; ">
             <!-- [style.backgroundColor]="artist.highlight ? '#EEE' : '#FFF'" -->
             <app-artist-items [artist]="artist"></app-artist-items>

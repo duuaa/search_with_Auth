@@ -5,9 +5,6 @@
 export const environment = {
   production: false
 };
-export const config = {
-  apiUrl: 'https://reqres.in/'
-};
 
 
 /*

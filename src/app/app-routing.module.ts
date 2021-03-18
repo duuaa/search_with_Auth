@@ -1,13 +1,15 @@
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
 import { SearchComponent } from './search/search.component';
 import { AuthRouteGaurd } from './shared/guards/auth.route.guard';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./home/home.module').then(_ => _.HomeModule)
+     component: HomeComponent
 
   },
   {
